@@ -49,7 +49,7 @@ for line in table[2:]:
         index = (i*6)+2
         counts = [int(x) for x in info[index:index+6]]
         var[sample_list[i]] = counts
-    dictio[seq+"."+pos] = var
+    dictio[seq+"&"+pos] = var
 
 ref_dict = {}
 
@@ -73,14 +73,14 @@ for el in ref_dict:
     counts_exc = counts[:ref] + [0] + counts[ref+1:]
     maxim = max(counts_exc)
     for i in range(0,len(counts)):
-        if maxim >1 and counts_exc[i] == maxim and 1.0*maxim/num_ref > 0.1:
+        if maxim > 1 and counts_exc[i] == maxim:
             alt_dict[el] = i
 
 for el in alt_dict:
     sel = dictio[el]
     ref = ref_dict[el]
     alt = alt_dict[el]
-    seq_name = el.split(".")
+    seq_name = el.split("&")
     seq_name = "\t".join(seq_name)
     final_list = []
     for s in sample_list:
@@ -99,7 +99,7 @@ w = open("ref_alt.txt","w")
 for el in alt_dict:
     r = ref_dict[el]
     a = alt_dict[el]
-    seq_name = el.split(".")
+    seq_name = el.split("&")
     seq_name = "\t".join(seq_name)
     w.write("%s\t%s\t%s\n" % (seq_name,str(r),str(a)))
 w.close()
