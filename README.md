@@ -12,6 +12,9 @@ Repository under construction!!!!
   * DeconSeq [http://deconseq.sourceforge.net](http://deconseq.sourceforge.net)
   * BLAT [http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/)
   * Trimmomatic [http://www.usadellab.org/cms/?page=trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
+  * R (ggplot2)
+  * pysamstats
+  * Python libraries for phylogenies
 
 ## Protocol 0. De novo assembly, CDS prediction and clustering
 
@@ -22,11 +25,11 @@ $ /usr/local/lib/trinityrnaseq-Trinity-v2.5.0/Trinity --seqType fq --max_memory 
 ```
 
 ```
-#  --normalize_max_read_cov <int>     defaults to 50
-#  --normalize_by_read_set                  run normalization separate for each pair of fastq files,
-#                                                            then one final normalization that combines the individual
-#                                                            normalized reads.
-#                                                            Consider using this if RAM limitations are a consideration.
+#  --normalize_max_read_cov <int>	defaults to 50
+#  --normalize_by_read_set		run normalization separate for each pair of fastq files,
+#					then one final normalization that combines the individual
+#					normalized reads.
+#					Consider using this if RAM limitations are a consideration.
 ```
 
 output - assembly: Trinity.fasta
@@ -206,5 +209,21 @@ $ sequence_ref_alt.py FastaFile ref_alt3.txt
 
 También valdría ref_alt2.txt, si lo quieres para todos los snps que saca el paso 2
 
-## Protocol 3
-[...]
+## Protocol 3. Phylogenies
+
+
+```
+$ bam_coverage_join.py FastaReference ListOfBams
+```
+
+```
+$ bam_consensus.py toico3.txt
+```
+
+```
+$ massive_phylogeny.py sequences_all_247genes_mod.fasta.fam gene_list.txt
+```
+
+```
+$ massive_phylogeny_figure.py NewickList Outgroup
+```
