@@ -109,6 +109,8 @@ Output: toico3.txt
 $ cat baba.txt hago un fichero asi? → Sip, así es como tendría que verse, separado por tabuladores
 
 ```
+
+```
 gdna_zerob.bam    gdna_zero
 gdna_plusb.bam    gdna_plus
 rna_zerob.bam    rna1_zero
