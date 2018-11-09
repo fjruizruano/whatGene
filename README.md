@@ -1,7 +1,7 @@
 # whatGene
 Tools to search for genes in special chromosomes like sexual or B chromosomes.
 
-Repository under construction!!!!
+README file under construction!!!!
 
 ## Installation
 - Copy script to your binaries folder.
