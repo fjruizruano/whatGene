@@ -13,13 +13,48 @@ Repository under construction!!!!
   * BLAT [http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/)
   * Trimmomatic [http://www.usadellab.org/cms/?page=trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
 
-## 0. De novo assembly, CDS prediction and clustering
+## Protocol 0. De novo assembly, CDS prediction and clustering
 
-Trinity
+### 0.1 Assembly (Trinity)
 
-Transdecoder
+```
+$ /usr/local/lib/trinityrnaseq-Trinity-v2.5.0/Trinity --seqType fq --max_memory 50G --left Paut-0B-Ind11_1.fq.gz,Paut-2B-Ind19_1.fq.gz --right Paut-0B-Ind11_2.fq.gz,Paut-2B-Ind19_2.fq.gz --CPU 12 --trimmomatic --full_cleanup
+```
 
-CD-HIT
+```
+#  --normalize_max_read_cov <int>     defaults to 50
+#  --normalize_by_read_set                  run normalization separate for each pair of fastq files,
+#                                                            then one final normalization that combines the individual
+#                                                            normalized reads.
+#                                                            Consider using this if RAM limitations are a consideration.
+```
+
+output - assembly: Trinity.fasta
+
+### 0.2 CDS extraction (Transdecoder)
+
+
+```
+$ TransDecoder.LongOrfs -t Trinity.fasta
+```
+
+output: emon_zb_trinity.fasta.transdecoder_dir/longest_orfs.cds
+
+### 0.3 Clustering (CD-HIT)
+
+Slow:
+
+```
+$ cd-hit-est -T 8 -r 1 -i longest_orfs.cds -o Trinity_cds_nr80.fasta -M 0 -aS 0.8 -c 0.8 -G 0 -g 1
+```
+
+Alternatively (fast):
+
+```
+$ cd-hit-est -r 1 -i longest_orfs.cds -T 12 -c 0.80 -o longest_orfs.cds.nr80 -M 0
+```
+
+output: longest_orfs.cds.nr80
 
 ## Protocol 1. Coverage graphics
 
@@ -171,3 +206,5 @@ $ sequence_ref_alt.py FastaFile ref_alt3.txt
 
 También valdría ref_alt2.txt, si lo quieres para todos los snps que saca el paso 2
 
+## Protocol 3
+[...]
