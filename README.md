@@ -13,6 +13,8 @@ Tools to search for genes in special chromosomes like sexual or B chromosomes.
   * R (ggplot2)
   * pysamstats
   * Python libraries for phylogenies
+  * RAxML [https://cme.h-its.org/exelixis/web/software/raxml/index.html]
+  * MAFFT [https://mafft.cbrc.jp/alignment/software/]
 
 ## Protocol 0. De novo assembly, CDS prediction and clustering
 
@@ -198,28 +200,35 @@ Finally, we get the counts.
 $ get_var_library.py # modify line 20 with the number of libraries
 ```
 
-### 2.5 sequence_ref_alt.py: Get Reference and alternative sequences 
+### 2.5 Get Reference and alternative sequences 
 
 ```
 $ sequence_ref_alt.py FastaFile ref_alt3.txt
 ```
 
-También valdría ref_alt2.txt, si lo quieres para todos los snps que saca el paso 2
+You can also use "ref_alt2.txt" file, if you do not apply filters for SNPs selection.
 
 ## Protocol 3. Phylogenies
 
+This protocol works for both transcriptomic and genomic libraries if we map libraries
 
 ```
 $ bam_coverage_join.py FastaReference ListOfBams
 ```
 
+Get majority consensus from BAM files for all the libraries of interest:
+
 ```
 $ bam_consensus.py toico3.txt
 ```
 
+Then we perform RAxML phylogenies with all genes in a FASTA file for a list of genes:
+
 ```
 $ massive_phylogeny.py sequences_all_247genes_mod.fasta.fam gene_list.txt
 ```
+
+Draw trees from the new trees:
 
 ```
 $ massive_phylogeny_figure.py NewickList Outgroup
