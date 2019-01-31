@@ -13,8 +13,8 @@ Tools to search for genes in special chromosomes like sexual or B chromosomes.
   * R (ggplot2)
   * pysamstats
   * Python libraries for phylogenies
-  * RAxML [https://cme.h-its.org/exelixis/web/software/raxml/index.html]
-  * MAFFT [https://mafft.cbrc.jp/alignment/software/]
+  * RAxML [https://cme.h-its.org/exelixis/web/software/raxml/index.html](https://cme.h-its.org/exelixis/web/software/raxml/index.html) 
+  * MAFFT [https://mafft.cbrc.jp/alignment/software/](https://mafft.cbrc.jp/alignment/software/)
 
 ## Protocol 0. De novo assembly, CDS prediction and clustering
 
