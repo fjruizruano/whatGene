@@ -158,23 +158,20 @@ Then we perform the SNP calling with this new file and the previously generated 
 $ snp_calling_bchr.py baba.txt toico3.txt
 ```
 
-Outputs: snps_selected2.txt; ref_alt2.txt saca los snps tomando como ref el de la librería 0B y como alt el de la librería +B
+Outputs: snps_selected2.txt: list with the selected SNPs
+         ref_alt2.txt: list with the variant Ref (fixed in gdna_zerob) and variant Alt (private of gdna_plusb)
 
 ### 2.4 Get variation per library
 
-Este paso sirve para hacer los conteos por librería individualmente, previa selección de las posiciones.
+This protocol works to get counts for Ref and Alt variants in the selected SNPs per individual library (not per joined libraries).
 
-Primero tenemos que sacar los conteos para las librerías por separado con el script del paso 1:
+Firstly, we get a table with the countings for each nucleotide for all the libraries:
 
 ```
 $ bam_var_join.py FastaReference ListOfBams
 ```
 
-Seleccionamos las posiciones del fichero ref_alt2.txt generado en el paso 2
-
-```
-$ cat sel.txt
-```
+We create a file "sel.txt" with selected positions. We can addiontally apply additional filters. The "sel.txt" files looks like this:
 
 ```
 seq1    3
@@ -183,19 +180,22 @@ seq2    456
 seq3    123
 ```
 
+Then we extract the positions from the ref_alt2.txt file:
+
 ```
 $ grep -wFf sel.txt ref_alt2.txt > ref_alt3.txt
 ```
 
-Seleccionamos las posiciones del fichero toico3.txt por librería individual, generado en este paso
+And from the  toico3.txt got from individual library:
 
 ```
 $ grep -wFf sel.txt toico3.txt > toico4.txt
 ```
 
+Finally, we get the counts.
+
 ```
 $ get_var_library.py # modify line 20 with the number of libraries
----->>> ESTO ES UNA COSA QUE TENGO QUE CAMBIAR!!!!!
 ```
 
 ### 2.5 sequence_ref_alt.py: Get Reference and alternative sequences 
