@@ -11,8 +11,8 @@ Tools to search for genes in special chromosomes like sexual or B chromosomes.
   * BLAT [http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/)
   * Trimmomatic [http://www.usadellab.org/cms/?page=trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
   * R (ggplot2)
-  * pysamstats
-  * Python libraries for phylogenies
+  * pysamstats [https://github.com/alimanfoo/pysamstats](https://github.com/alimanfoo/pysamstats)
+  * Python (Matplotlib, Pylab and Biopython)
   * RAxML [https://cme.h-its.org/exelixis/web/software/raxml/index.html](https://cme.h-its.org/exelixis/web/software/raxml/index.html) 
   * MAFFT [https://mafft.cbrc.jp/alignment/software/](https://mafft.cbrc.jp/alignment/software/)
 
