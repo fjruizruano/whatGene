@@ -1,8 +1,6 @@
 # whatGene
 Tools to search for genes in special chromosomes like sexual or B chromosomes.
 
-README file under construction!!!!
-
 ## Installation
 - Copy script to your binaries folder.
 - Dependencies:
@@ -116,24 +114,25 @@ $ coverage_graphics.py CoverageFile SamplesFile FastaFile [PDF/SVG/NOPLOT]
 
 ## Protocol 2. SNP calling
 
-### 2.1 Unir mapeos por tipo de de librería
+### 2.1 Join mappings by library type
 
-Hacer mapeos de cada librería por separado: gdna_zerob, gdna_plusb, rna_zerob, rna_plusb:
+Perform mapping for each library separately an then join in groups like these: gdna_zerob, gdna_plusb, rna_zerob, rna_plusb.
 
 ```
 $ samtools merge -u - gdna_zerob_ind1.bam gdna_zerob_ind2.bam | samtools sort - gdna_zerob
 $ samtools index gdna_zerob.bam
 ```
 
-New samtools version!!!!
+For the new Samtools version, the command are: 
+
 ```
 $ samtools merge -u - *bam | samtools sort -T aln.sorted - -o project_h.bam
 $ samtools index gdna_zerob.bam
 ```
 
-### 2.2 Unir conteos
+### 2.2 Join counts
 
-Realizar y unir conteos de abundancia de D, I, A, C, T y G a partir de los BAM unidos anteriormente. 
+Get counts from the joined bam files and join in a single table: 
 
 ```
 $ bam_var_join.py FastaReference ListOfBams
@@ -143,10 +142,7 @@ Output: toico3.txt
 
 ### 2.3 snp_calling_bchr.py: SNP calling
 
-```
-$ cat baba.txt hago un fichero asi? → Sip, así es como tendría que verse, separado por tabuladores
-
-```
+In a text file, indicate the type of library. At least, you should include gdna_zero (library withouth the chromosome) and gdna_plus (library with the chromosome). Please, use the same order like in the following example:
 
 ```
 gdna_zerob.bam    gdna_zero
@@ -156,7 +152,8 @@ rna_plusb.bam        rna1_plus
 rna_zerob_leg.bam    rna2_zero
 rna_plusb_leg.bam    rna2_plus
 ```
-Then we run:
+Then we perform the SNP calling with this new file and the previously generated "toico3.txt" file:
+
 ```
 $ snp_calling_bchr.py baba.txt toico3.txt
 ```
