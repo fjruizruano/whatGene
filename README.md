@@ -4,10 +4,8 @@ Tools to search for genes in special chromosomes like sexual or B chromosomes.
 ## Installation
 - Copy script to your binaries folder.
 - Dependencies:
-  * BioPython [http://biopython.org/wiki/Main_Page](http://biopython.org/wiki/Main_Page)
   * RepeatMasker [http://www.repeatmasker.org/RMDownload.html](http://www.repeatmasker.org/RMDownload.html)
   * seqTK [https://github.com/lh3/seqtk](https://github.com/lh3/seqtk)
-  * DeconSeq [http://deconseq.sourceforge.net](http://deconseq.sourceforge.net)
   * BLAT [http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/)
   * Trimmomatic [http://www.usadellab.org/cms/?page=trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
   * R (ggplot2)
