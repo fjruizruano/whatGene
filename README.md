@@ -4,7 +4,6 @@ Tools to search for genes in special chromosomes like sexual or B chromosomes.
 ## Installation
 - Copy script to your binaries folder.
 - Dependencies:
-  * RepeatMasker [http://www.repeatmasker.org/RMDownload.html](http://www.repeatmasker.org/RMDownload.html)
   * seqTK [https://github.com/lh3/seqtk](https://github.com/lh3/seqtk)
   * BLAT [http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/)
   * SSAHA2 [https://www.sanger.ac.uk/science/tools/ssaha2-0](https://www.sanger.ac.uk/science/tools/ssaha2-0)
@@ -13,6 +12,7 @@ Tools to search for genes in special chromosomes like sexual or B chromosomes.
   * R (ggplot2)
   * pysamstats [https://github.com/alimanfoo/pysamstats](https://github.com/alimanfoo/pysamstats)
   * Python (Matplotlib, Pylab and Biopython)
+  * CD-HIT [http://weizhongli-lab.org/cd-hit/](http://weizhongli-lab.org/cd-hit/)
   * RAxML [https://cme.h-its.org/exelixis/web/software/raxml/index.html](https://cme.h-its.org/exelixis/web/software/raxml/index.html) 
   * MAFFT [https://mafft.cbrc.jp/alignment/software/](https://mafft.cbrc.jp/alignment/software/)
 
