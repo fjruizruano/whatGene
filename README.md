@@ -7,6 +7,8 @@ Tools to search for genes in special chromosomes like sexual or B chromosomes.
   * RepeatMasker [http://www.repeatmasker.org/RMDownload.html](http://www.repeatmasker.org/RMDownload.html)
   * seqTK [https://github.com/lh3/seqtk](https://github.com/lh3/seqtk)
   * BLAT [http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/)
+  * SSAHA2 [https://www.sanger.ac.uk/science/tools/ssaha2-0](https://www.sanger.ac.uk/science/tools/ssaha2-0)
+  * Samtools [http://samtools.sourceforge.net/](http://samtools.sourceforge.net/)
   * Trimmomatic [http://www.usadellab.org/cms/?page=trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
   * R (ggplot2)
   * pysamstats [https://github.com/alimanfoo/pysamstats](https://github.com/alimanfoo/pysamstats)
