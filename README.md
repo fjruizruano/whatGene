@@ -134,6 +134,12 @@ $ samtools index gdna_zerob.bam
 
 ### 2.2 Join counts
 
+Generate list of BAM files:
+
+```
+$ ls gdna_zerob.bam gdna_plusb.bam > list.txt
+```
+
 Get counts from the joined bam files and join in a single table: 
 
 ```
