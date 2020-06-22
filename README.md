@@ -203,7 +203,7 @@ $ grep -wFf sel.txt toico3.txt > toico4.txt
 Finally, we get the counts.
 
 ```
-$ get_var_library.py # modify line 20 with the number of libraries
+$ get_var_library.py
 ```
 
 ### 2.5 Get Reference and alternative sequences 
