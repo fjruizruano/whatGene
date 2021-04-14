@@ -74,7 +74,7 @@ $ ssaha2_run_multi_pe_se.py list.txt reference.fasta 12
 ### 1.2 Generate coverage file
 
 ```
-$ bam_coverage_join.py FastaReference ListOfBams 999999]
+$ bam_coverage_join.py FastaReference ListOfBams 999999
 ```
 
 ### 1.3 Generate graphics
@@ -108,7 +108,18 @@ SRR764583_1_mapped      gDNA_NLW        277474348600    6300000000
 11_LMIG_PDH_LEG_M14_L12_1_mapped        RNAleg_SLCaPB   36.287354       1
 12_LMIG_PDH_LEG_M15_L12_1_mapped        RNAleg_SLCaPB   38.215901       1
 ```
-Then, we can run:
+In addition to this, you need to create a coordinates file with the sequences of the FASTA file that will be analyzed. The analysis will be ppreformed following the order in this file. This is easiest way to generate a coordinates file using the fasta file of the reference:
+
+```
+$ grep ">" references.fasta | sed 's/>//g' | awk {'print $1"\t\t\t"'} > coordinates.txt
+```
+In the coordinates file you can also include additional information that will be annotated in the output. The file will start with the name of the sequences (1st col.), the start and end positions of CDS (2nd col.), primer coordinates (3rd col.) and high coverage regions (4th col.).  See an example below:
+
+```
+A012_comp60611_c0_seq61_HEM1    1-4185        234-356,678-860    1506-1780,2480-4056
+```
+
+Then, we can run this command selecting PDF for PDF output, SVG for SVG output and NOPLOT to only get normalized average coverages per sequence:
 
 ```
 $ coverage_graphics.py CoverageFile SamplesFile FastaFile [PDF/SVG/NOPLOT]
