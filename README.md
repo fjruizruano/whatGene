@@ -119,10 +119,16 @@ In the coordinates file you can also include additional information that will be
 A012_comp60611_c0_seq61_HEM1    1-4185        234-356,678-860    1506-1780,2480-4056
 ```
 
+Optionally, you can include a SNPs file with the position of the SNPs:
+
+```
+A012_comp60611_c0_seq61_HEM1    3456
+```
+
 Then, we can run this command selecting PDF for PDF output, SVG for SVG output and NOPLOT to only get normalized average coverages per sequence:
 
 ```
-$ coverage_graphics.py CoverageFile SamplesFile FastaFile [PDF/SVG/NOPLOT]
+$ coverage_graphics.py CoverageFile SamplesFile FastaFile [PDF/SVG/NOPLOT] [SNPs file]
 ```
 
 ## Protocol 2. SNP calling
@@ -164,12 +170,12 @@ Output: toico3.txt
 In a text file, indicate the type of library. At least, you should include gdna_zero (library withouth the chromosome) and gdna_plus (library with the chromosome). Please, use the same order like in the following example:
 
 ```
-gdna_zerob.bam    gdna_zero
-gdna_plusb.bam    gdna_plus
-rna_zerob.bam    rna1_zero
-rna_plusb.bam        rna1_plus
-rna_zerob_leg.bam    rna2_zero
-rna_plusb_leg.bam    rna2_plus
+gdna_zerob.bam    gDNA_zero
+gdna_plusb.bam    gDNA_plus
+rna_zerob.bam     RNA1_zero
+rna_plusb.bam        RNA1_plus
+rna_zerob_leg.bam    RNA2_zero
+rna_plusb_leg.bam    RNA2_plus
 ```
 Then we perform the SNP calling with this new file and the previously generated "toico3.txt" file:
 
