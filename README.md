@@ -128,8 +128,34 @@ A012_comp60611_c0_seq61_HEM1    3456
 Then, we can run this command selecting PDF for PDF output, SVG for SVG output and NOPLOT to only get normalized average coverages per sequence:
 
 ```
-$ coverage_graphics.py CoverageFile SamplesFile FastaFile [PDF/SVG/NOPLOT] [SNPs file]
+$ coverage_graphics.py CoverageFile SamplesFile CoordinatesFile [PDF/SVG/NOPLOT] [SNPs file]
 ```
+
+An additional analysis works to estimate the proportion of positions in a gene with a higher normalized coverage in a 0B sample vs a +B sample. It can be useful to determine if the whole sequence is found in the B chromosome or only a part of the sequence. For this, we just need to add in the SamplesFiles the "zzz" prefix for the 0B sample and the "ppp" prefix for the +B sample. If we indicated the annotation of the CDS in the CoordinatesFile, it will get the proportion in both the whole sequence and restricted to the CDS. Here the modified SamplesFile:
+
+```
+01-LMIG-PAT-LEG-M01_checked_1_mapped    gDNA_zzzSLCa0B     20493125000     6300000000
+04-LMIG-PDH-LEG-M12_checked_1_mapped    gDNA_zzzSLCa0B     22651377750     6300000000
+02-LMIG-PAT-LEG-M04_checked_1_mapped    gDNA_pppSLCaPB     20184562750     6300000000
+03-LMIG-PDH-LEG-M04_checked_1_mapped    gDNA_pppSLCaPB     18438224500     6300000000
+05-LMIG-PDH-LEG-M14_checked_1_mapped    gDNA_pppSLCaPB     20354837250     6300000000
+06-LMIG-PDH-LEG-M15_checked_1_mapped    gDNA_pppSLCaPB     21084833750     6300000000
+SRR764583_1_mapped      gDNA_NLW        277474348600    6300000000
+01_LMIG_PAT_TES_M01_L12_1_mapped        RNAtestis_SLCa0B        31.497002       1
+04_LMIG_PDH_TES_M12_L12_1_mapped        RNAtestis_SLCa0B        35.184289       1
+02_LMIG_PAT_TES_M04_L12_1_mapped        RNAtestis_SLCaPB        35.837611       1
+03_LMIG_PDH_TES_M04_L12_1_mapped        RNAtestis_SLCaPB        23.952951       1
+05_LMIG_PDH_TES_M14_L12_1_mapped        RNAtestis_SLCaPB        48.226476       1
+06_LMIG_PDH_TES_M15_L12_1_mapped        RNAtestis_SLCaPB        33.787235       1
+07_LMIG_PAT_LEG_M01_L12_1_mapped        RNAleg_SLCa0B   32.427158       1
+10_LMIG_PDH_LEG_M12_L12_1_mapped        RNAleg_SLCa0B   38.024871       1
+08_LMIG_PAT_LEG_M04_L12_1_mapped        RNAleg_SLCaPB   33.235481       1
+09_LMIG_PDH_LEG_M04_L12_1_mapped        RNAleg_SLCaPB   38.558194       1
+11_LMIG_PDH_LEG_M14_L12_1_mapped        RNAleg_SLCaPB   36.287354       1
+12_LMIG_PDH_LEG_M15_L12_1_mapped        RNAleg_SLCaPB   38.215901       1
+```
+
+The information will be written in the "trunc_sum.txt" file.
 
 ## Protocol 2. SNP calling
 
