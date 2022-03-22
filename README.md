@@ -1,5 +1,5 @@
 # whatGene
-Tools to search for genes in special chromosomes like sexual or B chromosomes.
+Tools to search for genes in special chromosomes like sex or B chromosomes.
 
 ## Installation
 - Copy script to your binaries folder.
