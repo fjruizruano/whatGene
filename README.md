@@ -108,7 +108,7 @@ SRR764583_1_mapped      gDNA_NLW        277474348600    6300000000
 11_LMIG_PDH_LEG_M14_L12_1_mapped        RNAleg_SLCaPB   36.287354       1
 12_LMIG_PDH_LEG_M15_L12_1_mapped        RNAleg_SLCaPB   38.215901       1
 ```
-In addition to this, you need to create a coordinates file with the sequences of the FASTA file that will be analyzed. The analysis will be ppreformed following the order in this file. This is easiest way to generate a coordinates file using the fasta file of the reference:
+In addition to this, you need to create a coordinates file with the sequences of the FASTA file that will be analyzed. The analysis will be performed following the order in this file. This is the easiest way to generate a coordinates file using the fasta file of the reference:
 
 ```
 $ grep ">" references.fasta | sed 's/>//g' | awk {'print $1"\t\t\t"'} > coordinates.txt
@@ -161,7 +161,7 @@ The information will be written in the "trunc_sum.txt" file.
 
 ### 2.1 Join mappings by library type
 
-Perform mapping for each library separately an then join in groups like these: gdna_zerob, gdna_plusb, rna_zerob, rna_plusb.
+Perform mapping for each library separately and then join in groups like these: gdna_zerob, gdna_plusb, rna_zerob, rna_plusb.
 
 ```
 $ samtools merge -u - gdna_zerob_ind1.bam gdna_zerob_ind2.bam | samtools sort - gdna_zerob
@@ -193,7 +193,7 @@ Output: toico3.txt
 
 ### 2.3 snp_calling_bchr.py: SNP calling
 
-In a text file, indicate the type of library. At least, you should include gdna_zero (library withouth the chromosome) and gdna_plus (library with the chromosome). Please, use the same order like in the following example:
+In a text file, indicate the type of library. At least, you should include gdna_zero (library without the chromosome) and gdna_plus (library with the chromosome). Please, use the same order like in the following example:
 
 ```
 gdna_zerob.bam    gDNA_zero
@@ -222,7 +222,7 @@ Firstly, we get a table with the countings for each nucleotide for all the libra
 $ bam_var_join.py FastaReference ListOfBams
 ```
 
-We create a file "sel.txt" with selected positions. We can addiontally apply additional filters. The "sel.txt" files looks like this:
+We create a file "sel.txt" with selected positions. We can additionally apply additional filters. The "sel.txt" files looks like this:
 
 ```
 seq1    3
@@ -255,7 +255,7 @@ $ get_var_library.py
 $ sequence_ref_alt.py FastaFile ref_alt3.txt
 ```
 
-You can also use "ref_alt2.txt" file, if you do not apply filters for SNPs selection.
+You can also use the "ref_alt2.txt" file, if you do not apply filters for SNPs selection.
 
 ## Protocol 3. Phylogenies
 
