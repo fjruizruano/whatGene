@@ -83,7 +83,7 @@ You need to prepare a samples files with libraries sorted like in the latter com
 
 Name    TypeOfLibrary        LibrarySIzeInNucleotides    GenomeSizeInNucleotides
 
-For each reference sequence, the script will generate a pdf page. Looking at the type of library, the script will create a line chart for each different term before the “_” and for each different term after the “_” will include a line in the chart, calculating the mean+/-stdev if you have two or more libraries with the same term.
+For each reference sequence, the script will generate a pdf page. Looking at the type of library, the script will create a line chart for each different term before the "_" and for each different term after the "_" will include a line in the chart, calculating the mean+/-stdev if you have two or more libraries with the same term.
 
 An example:
 
